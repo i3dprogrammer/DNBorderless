@@ -1,0 +1,3 @@
+LIBRARY "bdvid32"
+EXPORTS
+	CreateBandiVideo2 @1
