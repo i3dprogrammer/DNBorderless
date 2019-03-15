@@ -13,11 +13,7 @@ BOOL CALLBACK EnumThreadWndProc(HWND argHwnd, LPARAM lParam)
 void MakeBorderless(){
 	HWND handle;
 	DWORD lThreadId = GetCurrentThreadId();
-	//std::cout << lThreadId << std::endl;
 	EnumThreadWindows(lThreadId, EnumThreadWndProc, (long)&handle);
-	//std::cout << handle << std::endl;
-	//DWORD dwNewLong = GetWindowLongA(handle, -16);
-	//std::cout << dwNewLong << std::endl;
 	GetClientRect(handle, &Rect);
 	AdjustWindowRect(&Rect, 0x900A0000, 0);
 	SetWindowLongA(handle, -16, 0x900A0000);
@@ -27,10 +23,6 @@ void MakeBorderless(){
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved) {
-	/*AllocConsole();
-	FILE *fp;
-	freopen_s(&fp, "CONOUT$", "w", stdout);
-	std::cout.clear();*/
 	return TRUE;
 }
 
@@ -45,10 +37,10 @@ signed int __cdecl CreateBandiVideo2(int a1, DWORD *a2, int a3, int a4) {
 	HINSTANCE bdvidInstance = LoadLibraryA("bdvid32_2.dll");
 
 	if (!bdvidInstance) {
-		MessageBoxA(0, "Couldn't load library bdvid32_2.dll", "Test", MB_OK);
+		MessageBoxA(0, "Couldn't load library bdvid32_2.dll", "Error", MB_OK);
 		return EXIT_FAILURE;
 	}
 
-	bdvid test = (bdvid)GetProcAddress(bdvidInstance, "CreateBandiVideo2");
-	return test(a1, a2, a3, a4);
+	bdvid fn1 = (bdvid)GetProcAddress(bdvidInstance, "CreateBandiVideo2");
+	return fn1(a1, a2, a3, a4);
 }
