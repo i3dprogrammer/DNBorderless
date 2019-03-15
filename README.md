@@ -2,7 +2,7 @@
 DLL Created to change Dragon Nest mode to borderless automatically on launch
 
 ## How to use
-Download the DLLs from [https://github.com/i3dprogrammer/DNBorderless/releases/download/1.0/Borderless.rar](here) and then extract them in your Dragon Nest directory, and replace files.
+Download the DLLs from [here](https://github.com/i3dprogrammer/DNBorderless/releases/download/1.0/Borderless.rar) and then extract them in your Dragon Nest directory, and replace files.
 
 ## How it works
 The game loads `bdvid32.dll` when it starts, so we simply change the original `bdvid32.dll` to `bdvid32_2.dll` and rename our dll to `bdvid32.dll`
